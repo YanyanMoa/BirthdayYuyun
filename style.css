@@ -18,48 +18,21 @@ body {
   --transparency-alpha: 0;
   --glow: hsla(var(--glow-hue), calc(var(--glow-saturation) * 1%), calc(var(--glow-lightness) * 1%), var(--glow-alpha));
   --transparent: hsla(0, 0%, 0%, var(--transparency-alpha));
-  
-  /* Centers the content vertically and horizontally */
-  display: grid;
-  place-items: center;
+  display: flex;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  margin: 0;
   background: hsl(180, 30%, calc(var(--lightness, 50) * 1%));
 }
 .whitespace {
   width: 7px;
 }
-
-/* ========================================================== */
-/* THE CRITICAL MOBILE CLICK FIX IS HERE                      */
-/* ========================================================== */
 .birthday-button {
   position: relative;
   transform: scale(0.6);
-  
-  /* This makes the container "transparent" to clicks/taps */
-  pointer-events: none;
-}
-.birthday-button__button {
-  width: 280px;
-  height: 100px;
-  position: relative;
-  border: 0;
-  background: var(--icing);
-  border-radius: 14px;
   cursor: pointer;
-  
-  /* This makes ONLY the button itself clickable again */
-  pointer-events: auto;
-
-  /* Prevents text highlighting on tap, for a more native feel */
-  -webkit-user-select: none;
-  user-select: none;
 }
-/* ========================================================== */
-
-
 .birthday-button__text {
   position: absolute;
   top: 0;
@@ -70,10 +43,10 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.4rem; /* Increased font size */
   font-family: sans-serif;
   font-weight: bold;
-  white-space: nowrap;
+  white-space: nowrap; 
 }
 .birthday-button__text .char {
   display: inline-block;
@@ -105,7 +78,15 @@ body {
   transform: translate(-50%, -50%) scale(calc(var(--flame) * 1));
   opacity: var(--flame);
 }
-
+.birthday-button__button {
+  width: 280px; /* Increased button width to fit larger text */
+  height: 100px;
+  position: relative;
+  border: 0;
+  background: var(--icing);
+  border-radius: 14px;
+  cursor: pointer;
+}
 .birthday-button__cake {
   position: absolute;
   bottom: 0;
