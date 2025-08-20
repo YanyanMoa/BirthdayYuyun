@@ -200,8 +200,11 @@ const RESET = () => {
     '--sprinkle-hue': () => Math.random() * 360,
     scale: 0,
     transformOrigin: '50% 50%' });
-
-  set('.birthday-button', { scale: 0.6, x: 0, y: 0 });
+  
+  // UPDATED: Set a responsive starting scale based on screen width
+  const initialScale = window.innerWidth < 480 ? 0.6 : 0.7;
+  set('.birthday-button', { scale: initialScale, x: 0, y: 0 });
+  
   set('.birthday-button__cake', { display: 'none' });
   set('.cake__candle', { scaleY: 0, transformOrigin: '50% 100%' });
 };
@@ -219,7 +222,8 @@ const MASTER_TL = timeline({
 set('.birthday-button__cake', { display: 'block' }).
 to('.birthday-button', {
   onStart: () => SOUNDS.CHEER.play(),
-  scale: 1,
+  // UPDATED: Set a responsive final scale
+  scale: window.innerWidth < 480 ? 0.85 : 1,
   duration: 0.2 }).
 
 to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0).
@@ -253,4 +257,4 @@ const toggleAudio = () => {
   BLOW.muted;
 };
 
-document.querySelector('#volume').addEventListener('input', toggleAudio);
+document.querySelector('#volume').addEventListener('input', toggleAudio);```
