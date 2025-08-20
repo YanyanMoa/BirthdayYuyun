@@ -30,7 +30,7 @@ body {
 }
 .birthday-button {
   position: relative;
-  transform: scale(0.6);
+  /* REMOVED fixed scale. JS will now handle responsive scaling. */
   cursor: pointer;
 }
 .birthday-button__text {
